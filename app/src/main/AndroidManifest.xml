@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <!-- Declaring hardware feature, telephony is not mandatory -->
+    <uses-feature
+        android:name="android.hardware.telephony"
+        android:required="false" />
+
+    <!-- Declaring required permissions -->
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.CALL_PHONE"/>
+    <uses-permission android:name="android.permission.READ_MEDIA_IMAGES"/>
+    <uses-permission android:name="android.permission.READ_MEDIA_VIDEO"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+
+    <application
+        android:allowBackup="true"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:fullBackupContent="@xml/backup_rules"
+        android:icon="@drawable/drocharyalogo"
+        android:label="@string/app_name"
+        android:roundIcon="@drawable/drocharyalogo"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.Dronacharya_College_App"
+        tools:targetApi="31">
+
+        <!-- Declaring OpenPermissions Activity, not exported -->
+        <activity
+            android:name=".screens.OpenPermissions"
+            android:exported="false"
+            android:theme="@style/Theme.AppCompat.DayNight.NoActionBar"/>
+
+        <!-- Declaring MainActivity as the launcher activity -->
+        <activity
+            android:name=".MainActivity"
+            android:exported="true"
+            android:label="@string/app_name"
+            android:theme="@style/Theme.Dronacharya_College_App">
+            <intent-filter>
+                <!-- Declaring this as the MAIN entry point -->
+                <action android:name="android.intent.action.MAIN" />
+
+                <!-- Declaring this as the LAUNCHER activity -->
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>
